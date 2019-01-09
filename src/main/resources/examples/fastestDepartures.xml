@@ -1,0 +1,71 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <GetFastestDeparturesResponse xmlns="http://thalesgroup.com/RTTI/2017-10-01/ldb/">
+         <DeparturesBoard xmlns:lt="http://thalesgroup.com/RTTI/2012-01-13/ldb/types" xmlns:lt6="http://thalesgroup.com/RTTI/2017-02-02/ldb/types" xmlns:lt7="http://thalesgroup.com/RTTI/2017-10-01/ldb/types" xmlns:lt4="http://thalesgroup.com/RTTI/2015-11-27/ldb/types" xmlns:lt5="http://thalesgroup.com/RTTI/2016-02-16/ldb/types" xmlns:lt2="http://thalesgroup.com/RTTI/2014-02-20/ldb/types" xmlns:lt3="http://thalesgroup.com/RTTI/2015-05-14/ldb/types">
+            <lt4:generatedAt>2018-11-30T08:20:21.0772253+00:00</lt4:generatedAt>
+            <lt4:locationName>Hereford</lt4:locationName>
+            <lt4:crs>HFD</lt4:crs>
+            <lt4:platformAvailable>true</lt4:platformAvailable>
+            <lt7:departures>
+               <lt7:destination crs="LED">
+                  <lt7:service>
+                     <lt4:std>08:45</lt4:std>
+                     <lt4:etd>On time</lt4:etd>
+                     <lt4:operator>West Midlands Trains</lt4:operator>
+                     <lt4:operatorCode>LM</lt4:operatorCode>
+                     <lt4:serviceType>train</lt4:serviceType>
+                     <lt4:serviceID>QHmkaqFpGIT/CBq9w/YRNw==</lt4:serviceID>
+                     <lt5:rsid>LM297900</lt5:rsid>
+                     <lt5:origin>
+                        <lt4:location>
+                           <lt4:locationName>Hereford</lt4:locationName>
+                           <lt4:crs>HFD</lt4:crs>
+                        </lt4:location>
+                     </lt5:origin>
+                     <lt5:destination>
+                        <lt4:location>
+                           <lt4:locationName>Birmingham New Street</lt4:locationName>
+                           <lt4:crs>BHM</lt4:crs>
+                        </lt4:location>
+                     </lt5:destination>
+                  </lt7:service>
+               </lt7:destination>
+            </lt7:departures>
+         </DeparturesBoard>
+      </GetFastestDeparturesResponse>
+   </soap:Body>
+</soap:Envelope>
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:typ="http://thalesgroup.com/RTTI/2013-11-28/Token/types" xmlns:ldb="http://thalesgroup.com/RTTI/2017-10-01/ldb/">
+   <soapenv:Header>
+      <typ:AccessToken>
+         <typ:TokenValue>b0ea9cb7-1dd5-4642-88d2-1c2cea541765</typ:TokenValue>
+      </typ:AccessToken>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ldb:GetFastestDeparturesRequest>
+         <ldb:crs>HFD</ldb:crs>
+         <ldb:filterList>
+            <!--1 or more repetitions:-->
+            <ldb:crs>LED</ldb:crs>
+         </ldb:filterList>
+         <!--Optional:-->
+         <ldb:timeOffset>0</ldb:timeOffset>
+         <!--Optional:-->
+         <ldb:timeWindow>120</ldb:timeWindow>
+      </ldb:GetFastestDeparturesRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+
+
+
+POST https://lite.realtime.nationalrail.co.uk/OpenLDBWS/ldb11.asmx HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: "http://thalesgroup.com/RTTI/2015-05-14/ldb/GetFastestDepartures"
+Content-Length: 806
+Host: lite.realtime.nationalrail.co.uk
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
